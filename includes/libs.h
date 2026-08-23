@@ -7,5 +7,6 @@
 #include <cmath>
 #include <limits>
 #include <iomanip>
+#include <stdexcept>
 
 #endif
