@@ -1,5 +1,6 @@
 #ifndef ARITHMETIC_H
 #define ARITHMETIC_H
+
 #include "Point.h"
 
 Point Add(Point p1, Point p2);
