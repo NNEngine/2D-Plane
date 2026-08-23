@@ -1,0 +1,28 @@
+# Build output
+/cartesian
+/*.out
+/*.exe
+
+# Object files
+*.o
+*.obj
+
+# Debug symbols
+*.dSYM/
+*.pdb
+
+# CMake
+/build/
+/CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# IDE/editor files
+.vscode/
+.idea/
+
+# Temporary files
+*.swp
+*.swo
+*~
