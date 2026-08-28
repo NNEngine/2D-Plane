@@ -1,6 +1,7 @@
 #include "./includes/Arithmetic.h"
 #include "./includes/Scalar.h"
 #include "./includes/Distances.h"
+#include "./includes/extra.h"
 
 int main()
 {
@@ -13,13 +14,10 @@ int main()
     std::cout << "P2 = ";
     p2.print_point();
 
-
     std::cout <<"===== Arithmetic Operations =====";
     Point add = Add(p1, p2);
     Point sub = Sub(p1, p2);
     Point mul = Mul(p1, p2);
-    Point div = Div(p1, p2);
-    Point mod = Mod(p1, p2);
 
     std::cout << "\nAddition: ";
     add.print_point();
@@ -31,10 +29,21 @@ int main()
     mul.print_point();
 
     std::cout << "Division: ";
-    div.print_point();
-
+    try{
+        Point div = Div(p1, p2);
+        div.print_point();
+    }catch(const std::invalid_argument &e){
+        std::cout << "Error: " << e.what();
+    }
+    
+    
     std::cout << "Modulo: ";
-    mod.print_point();
+    try{
+        Point mod = Mod(p1, p2);
+        mod.print_point();
+    }catch(const std::invalid_argument &e){
+        std::cout << "Error: " << e.what();
+    }
 
     std::cout << "===== Scalar Operations =====";
 
@@ -53,8 +62,20 @@ int main()
     muls.print_point();
 
     std::cout << "Division: ";
-    Point divs = Divs(p1, scalar);
-    divs.print_point();
+    try{
+        Point divs = Divs(p1, scalar);
+        divs.print_point();
+    }catch(const std::invalid_argument &e){
+        std::cout << "Error: " << e.what();
+    }
+
+    std::cout << "Mods: ";
+    try{
+        Point mod = Mods(p1, scalar);
+        mod.print_point();
+    }catch(const std::invalid_argument &e){
+        std::cout << "Error: " << e.what();
+    }
 
     std::cout << "===== Distance between Points =====";
 
@@ -84,5 +105,25 @@ int main()
 
     std::cout << "\n";
 
+    std::cout << "===== Extra =====\n";
+
+    std::cout << "Mid Point: ";
+    Point mid = mid_point(p1, p2);
+    mid.print_point();
+
+    std::cout << "Slope: ";
+    double slope_ = slope(p1, p2);
+    std::cout << slope_ ;
+
+    std::cout << "\nline: ";
+    Point m_c = line(p1, p2);
+    m_c.print_point();
+
+    std::cout << "linep: ";
+    Point nm_c = linep(p1, p2);
+    nm_c.print_point();
+
+    std::cout << "\n";
+    
     return 0;
 }
